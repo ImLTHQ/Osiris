@@ -177,25 +177,25 @@ $.Osiris = (function () {
   };
 
   var createOnOffDropDown = function (parent, labelText, section, feature) {
-    createDropDown(parent, labelText, section, feature, ["On", "Off"]);
+    createDropDown(parent, labelText, section, feature, ["启用", "禁用"]);
   };
 
   var createYesNoDropDown = function (parent, labelText, section, feature, defaultIndex = 1) {
-    createDropDown(parent, labelText, section, feature, ["Yes", "No"], defaultIndex);
+    createDropDown(parent, labelText, section, feature, ["是", "否"], defaultIndex);
   };
 
   var hud = createTab('hud');
   var bomb = createSection(hud, '炸弹');
-    createYesNoDropDown(bomb, "显示炸弹爆炸倒计时和包点", 'hud', 'bomb_timer');
+    createYesNoDropDown(bomb, "显示炸弹爆炸倒计时与所在包点", 'hud', 'bomb_timer');
   $.CreatePanel('Panel', bomb, '', { class: "horizontal-separator" });
     createYesNoDropDown(bomb, "显示拆弹倒计时", 'hud', 'defusing_alert');
   var killfeed = createSection(hud, '击杀记录');
-    createYesNoDropDown(killfeed, "在回合中保存我的击杀记录", 'hud', 'preserve_killfeed');
+    createYesNoDropDown(killfeed, "保留本回合我的击杀记录", 'hud', 'preserve_killfeed');
 
     var visuals = createTab('visuals');
 
   var playerInfo = createSection(visuals, '透视');
-  createDropDown(playerInfo, "启用", 'visuals', 'player_information_through_walls', ['敌人', '所有玩家', 'Off'], 2);
+    createDropDown(playerInfo, "启用透视", 'visuals', 'player_information_through_walls', ['敌人', '所有玩家', '否'], 2);
   $.CreatePanel('Panel', playerInfo, '', { class: "horizontal-separator" });
     createYesNoDropDown(playerInfo, "显示玩家位置", 'visuals', 'player_info_position', 0);
   $.CreatePanel('Panel', playerInfo, '', { class: "horizontal-separator" });
@@ -219,18 +219,18 @@ $.Osiris = (function () {
 
     var sound = createTab('sound');
   
-  var playerSoundVisualization = createSection(sound, '玩家声音可视化');
+  var playerSoundVisualization = createSection(sound, '玩家声音');
   $.CreatePanel('Panel', playerSoundVisualization, '', { class: "horizontal-separator" });
     createYesNoDropDown(playerSoundVisualization, "显示玩家脚步声", 'sound', 'visualize_player_footsteps');
 
-    var bombSoundVisualization = createSection(sound, '炸弹声音可视化');
+    var bombSoundVisualization = createSection(sound, '炸弹声音');
     createYesNoDropDown(bombSoundVisualization, "显示炸弹放置声音", 'sound', 'visualize_bomb_plant');
   $.CreatePanel('Panel', bombSoundVisualization, '', { class: "horizontal-separator" });
-    createYesNoDropDown(bombSoundVisualization, "显示炸弹嘀嘀声", 'sound', 'visualize_bomb_beep');
+    createYesNoDropDown(bombSoundVisualization, "显示炸弹蜂鸣声", 'sound', 'visualize_bomb_beep');
   $.CreatePanel('Panel', bombSoundVisualization, '', { class: "horizontal-separator" });
     createYesNoDropDown(bombSoundVisualization, "显示拆弹声音", 'sound', 'visualize_bomb_defuse');
 
-    var weaponSoundVisualization = createSection(sound, '武器声音可视化');
+    var weaponSoundVisualization = createSection(sound, '武器声音');
     createYesNoDropDown(weaponSoundVisualization, "显示开镜声音", 'sound', 'visualize_scope_sound');
   $.CreatePanel('Panel', weaponSoundVisualization, '', { class: "horizontal-separator" });
     createYesNoDropDown(weaponSoundVisualization, "显示换弹声音", 'sound', 'visualize_reload_sound');
