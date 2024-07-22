@@ -99,7 +99,7 @@ $.Osiris = (function () {
       onactivate: "$.Osiris.navigateToTab('visuals');"
     });
 
-    $.CreatePanel('Label', visualsTabButton, '', { text: "Visuals" });
+    $.CreatePanel('Label', visualsTabButton, '', { text: " ”æı" });
     
     var soundTabButton = $.CreatePanel('RadioButton', centerContainer, 'sound_button', {
       group: "SettingsNavBar",
@@ -107,7 +107,7 @@ $.Osiris = (function () {
       onactivate: "$.Osiris.navigateToTab('sound');"
     });
 
-    $.CreatePanel('Label', soundTabButton, '', { text: "Sound" });
+    $.CreatePanel('Label', soundTabButton, '', { text: "…˘“Ù" });
   };
 
   createNavbar();
