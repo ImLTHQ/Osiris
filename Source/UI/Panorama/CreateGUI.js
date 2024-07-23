@@ -90,31 +90,13 @@ $.Osiris = (function () {
       class: "content-navbar__tabs__btn",
       onactivate: "$.Osiris.navigateToTab('hud');"
     });
-
     $.CreatePanel('Label', hudTabButton, '', { text: "HUD" });
-
-    var visualsTabButton = $.CreatePanel('RadioButton', centerContainer, 'visuals_button', {
-      group: "SettingsNavBar",
-      class: "content-navbar__tabs__btn",
-      onactivate: "$.Osiris.navigateToTab('visuals');"
-    });
-
-    $.CreatePanel('Label', visualsTabButton, '', { text: "视觉" });
-    
-    var soundTabButton = $.CreatePanel('RadioButton', centerContainer, 'sound_button', {
-      group: "SettingsNavBar",
-      class: "content-navbar__tabs__btn",
-      onactivate: "$.Osiris.navigateToTab('sound');"
-    });
-
-    $.CreatePanel('Label', soundTabButton, '', { text: "声音" });
 
     var testTabButton = $.CreatePanel('RadioButton',centerContainer,'test_button',{
       group: "SettingsNavBar",
       class: "content-navbar__tabs__btn",
       onactivate: "$.Osiris.navigateToTab('test');"
     });
-
     $.CreatePanel('Label', testTabButton, '', { text: "测试" });
   };
 
@@ -193,55 +175,8 @@ $.Osiris = (function () {
   };
 
   var hud = createTab('hud');
-  var bomb = createSection(hud, '炸弹');
-    createYesNoDropDown(bomb, "显示炸弹爆炸倒计时与所在包点", 'hud', 'bomb_timer');
-  $.CreatePanel('Panel', bomb, '', { class: "horizontal-separator" });
-    createYesNoDropDown(bomb, "显示拆弹倒计时", 'hud', 'defusing_alert');
   var killfeed = createSection(hud, '击杀记录');
     createYesNoDropDown(killfeed, "保留本回合我的击杀记录", 'hud', 'preserve_killfeed');
-
-    var visuals = createTab('visuals');
-
-  var playerInfo = createSection(visuals, '透视');
-    createDropDown(playerInfo, "启用透视", 'visuals', 'player_information_through_walls', ['敌人', '所有玩家', '否'], 2);
-  $.CreatePanel('Panel', playerInfo, '', { class: "horizontal-separator" });
-    createYesNoDropDown(playerInfo, "显示玩家位置", 'visuals', 'player_info_position', 0);
-  $.CreatePanel('Panel', playerInfo, '', { class: "horizontal-separator" });
-    createDropDown(playerInfo, "玩家位置箭头颜色", 'visuals', 'player_info_position_color', ['玩家/团队颜色', '团队颜色'], 0);
-  $.CreatePanel('Panel', playerInfo, '', { class: "horizontal-separator" });
-  createYesNoDropDown(playerInfo, "显示玩家血条", 'visuals', 'player_info_health', 0);
-  $.CreatePanel('Panel', playerInfo, '', { class: "horizontal-separator" });
-  createDropDown(playerInfo, "玩家血条字体颜色", 'visuals', 'player_info_health_color', ['基于血量', '白色'], 0);
-  $.CreatePanel('Panel', playerInfo, '', { class: "horizontal-separator" });
-    createYesNoDropDown(playerInfo, "显示玩家使用的武器图标", 'visuals', 'player_info_weapon', 0);
-  $.CreatePanel('Panel', playerInfo, '', { class: "horizontal-separator" });
-    createYesNoDropDown(playerInfo, "显示玩家使用的武器弹药数", 'visuals', 'player_info_weapon_clip', 0);
-  $.CreatePanel('Panel', playerInfo, '', { class: "horizontal-separator" });
-  createYesNoDropDown(playerInfo, "显示拆包图标", 'visuals', 'player_info_defuse', 0);
-  $.CreatePanel('Panel', playerInfo, '', { class: "horizontal-separator" });
-    createYesNoDropDown(playerInfo, '显示劫持人质图标', 'visuals', 'player_info_hostage_pickup', 0);
-  $.CreatePanel('Panel', playerInfo, '', { class: "horizontal-separator" });
-    createYesNoDropDown(playerInfo, '显示营救人质图标', 'visuals', 'player_info_hostage_rescue', 0);
-  $.CreatePanel('Panel', playerInfo, '', { class: "horizontal-separator" });
-    createYesNoDropDown(playerInfo, '显示被闪光弹致盲图标', 'visuals', 'player_info_blinded', 0);
-
-    var sound = createTab('sound');
-  
-  var playerSoundVisualization = createSection(sound, '玩家声音');
-  $.CreatePanel('Panel', playerSoundVisualization, '', { class: "horizontal-separator" });
-    createYesNoDropDown(playerSoundVisualization, "显示玩家脚步声", 'sound', 'visualize_player_footsteps');
-
-    var bombSoundVisualization = createSection(sound, '炸弹声音');
-    createYesNoDropDown(bombSoundVisualization, "显示炸弹放置声音", 'sound', 'visualize_bomb_plant');
-  $.CreatePanel('Panel', bombSoundVisualization, '', { class: "horizontal-separator" });
-    createYesNoDropDown(bombSoundVisualization, "显示炸弹蜂鸣声", 'sound', 'visualize_bomb_beep');
-  $.CreatePanel('Panel', bombSoundVisualization, '', { class: "horizontal-separator" });
-    createYesNoDropDown(bombSoundVisualization, "显示拆弹声音", 'sound', 'visualize_bomb_defuse');
-
-    var weaponSoundVisualization = createSection(sound, '武器声音');
-    createYesNoDropDown(weaponSoundVisualization, "显示开镜声音", 'sound', 'visualize_scope_sound');
-  $.CreatePanel('Panel', weaponSoundVisualization, '', { class: "horizontal-separator" });
-    createYesNoDropDown(weaponSoundVisualization, "显示换弹声音", 'sound', 'visualize_reload_sound');
 
     var test = createTab('test');
 
