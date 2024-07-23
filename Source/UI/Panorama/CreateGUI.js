@@ -108,6 +108,14 @@ $.Osiris = (function () {
     });
 
     $.CreatePanel('Label', soundTabButton, '', { text: "…˘“Ù" });
+
+    var testTabButton = $.CreatePanel('RadioButton',centerContainer,'test_button',{
+      group: "SettingsNavBar",
+      class: "content-navbar__tabs__btn",
+      onactivate: "$.Osiris.navigateToTab('test');"
+    });
+
+    $.CreatePanel('Label', testTabButton, '', { text: "≤‚ ‘" });
   };
 
   createNavbar();
@@ -234,6 +242,8 @@ $.Osiris = (function () {
     createYesNoDropDown(weaponSoundVisualization, "œ‘ æø™æµ…˘“Ù", 'sound', 'visualize_scope_sound');
   $.CreatePanel('Panel', weaponSoundVisualization, '', { class: "horizontal-separator" });
     createYesNoDropDown(weaponSoundVisualization, "œ‘ æªªµØ…˘“Ù", 'sound', 'visualize_reload_sound');
+
+    var test = createTab('test');
 
   $.Osiris.navigateToTab('hud');
 })();
