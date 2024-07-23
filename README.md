@@ -3,42 +3,44 @@
 ![Windows](https://github.com/danielkrupinski/Osiris/workflows/Windows/badge.svg?branch=master&event=push)
 ![Linux](https://github.com/danielkrupinski/Osiris/workflows/Linux/badge.svg?branch=master&event=push)
 
-Cross-platform (Windows, Linux) game hack for **Counter-Strike 2** with GUI and rendering based on game's Panorama UI. Compatible with the latest game update on Steam.
+Counter-Strike 2 的跨平台（Windows、Linux）游戏黑客，具有基于游戏全景 UI 的 GUI 和渲染。与Steam上的最新游戏更新兼容。  
+本仓库提供了基于原版Osiris的简体中文版本  
+默认分支(Legit)保留了合法功能，不影响游戏平衡，但是注入仍会有VAC封禁的风险。
 
-## What's new
+## 新增功能
 
-* 20 May 2024 - Implemented showing players' active weapon ammo
+* 2024年5月20日 - 已实现显示玩家正在使用的武器弹药数量
 
 ![Player active weapon ammo](https://github.com/danielkrupinski/Osiris/assets/34515229/9a6dfc37-ee9f-4b70-9b1f-0e4465bf58fb)
 
-* 15 May 2024 - Implemented showing an icon on player blinded by a flashbang
+* 2024年5月15 日 - 实现了在被闪光弹致盲的玩家身上显示图标
 
 ![Player blinded by flashbang](https://github.com/danielkrupinski/Osiris/assets/34515229/18b10e66-545a-449f-8783-691d5c1b2003)
 
-* 14 May 2024 - Implemented showing an icon on player rescuing a hostage
+* 2024年5月14日 - 已实现在玩家解救人质时显示图标
 
 ![Player rescuing hostage](https://github.com/danielkrupinski/Osiris/assets/34515229/057b6dc7-1b54-44c0-9443-6917d2394335)
 
-* 7 May 2024 - Implemented showing an icon on player picking up a hostage
+* 2024年5月7日 - 在玩家劫持人质时显示图标
 
 ![Player picking up hostage](https://github.com/danielkrupinski/Osiris/assets/34515229/d3a27f1a-dd79-4d18-bfbb-d8bb8c47ae2d)
 
-* 6 May 2024 - Adjusted "Bomb timer" appearance. Implemented showing an icon on player defusing the bomb
+* 2024年5月6日 - 调整了“炸弹计时器”外观。实现了在玩家拆除炸弹时显示图标
 
 ![Player defusing icon](https://github.com/danielkrupinski/Osiris/assets/34515229/4addfc99-27d8-4f9d-a1b7-eb2b7c7565bd)
 
-## Technical features
+## 技术特点
 
-* C++ runtime library (CRT) is not used in release builds
-* No heap memory allocations
-* No static imports in release build on Windows
-* No threads are created
-* Exceptions are not used
-* No external dependencies
+* C++ 运行库 （CRT） 未在Release版本中使用
+* 无堆内存分配
+* 在 Windows 上的Release版本中没有静态导入
+* 不创建任何线程
+* 不使用Exceptions
+* 无外部依赖关系
 
-## Compiling
+## 编译
 
-### Prerequisites
+### 前置条件
 
 #### Windows
 
@@ -49,15 +51,15 @@ Cross-platform (Windows, Linux) game hack for **Counter-Strike 2** with GUI and 
 * **CMake 3.24** or newer
 * **g++ 11 or newer** or **clang++ 15 or newer**
 
-### Compiling from source
+### 从源代码编译
 
 #### Windows
 
-Open **Osiris.sln** in Visual Studio 2022, set build configuration to **Release | x64**. Press *Build solution* and you should receive **Osiris.dll** file.
+在 Visual Studio 中打开Osiris.sln，将生成配置设置为“Release”|“x64”。按“构建解决方案”，您应该会收到Osiris.dll文件。
 
 #### Linux
 
-Configure with CMake:
+使用 CMake 进行配置：
 
     cmake -DCMAKE_BUILD_TYPE=Release -B build
 
@@ -65,25 +67,27 @@ Build:
 
     cmake --build build -j $(nproc --all)
 
-After following these steps you should receive **libOsiris.so** file in **build/Source/** directory.
+按照这些步骤操作后，您应该会在 **build/Source/** 目录中收到 **libOsiris.so** 文件。
 
-### Loading / Injecting into game process
+### 加载/注入游戏进程
 
 #### Windows
 
-You need a **DLL injector** to inject (load) **Osiris.dll** into game process.
+您需要一个 **DLL注入器** 来将 **Osiris.dll** 注入(加载)到游戏进程中。
 
-Counter-Strike 2 blocks LoadLibrary injection method, so you have to use a manual mapping (aka reflective DLL injection) injector.
+Counter-Strike 2 阻止了 **LoadLibrary** 注入方法，因此您必须使用手动映射（又名反射式 DLL 注入）注入器。
 
-**Xenos** and **Extreme Injector** are known to be **detected** by VAC.
+使用**ExLoader**的默认模式（隐式）可成功注入到Counter-Strike 2
+
+**已知 VAC 检测到 Xenos 和 Extreme Injector。**
 
 #### Linux
 
-You can simply run the following script in the directory containing **libOsiris.so**:
+只需在包含 **libOsiris.so** 的目录中运行以下脚本即可：
 
     sudo gdb -batch-silent -p $(pidof cs2) -ex "call (void*)dlopen(\"$PWD/libOsiris.so\", 2)"
 
-However, this injection method might be detected by VAC as gdb is visible under **TracerPid** in `/proc/$(pidof cs2)/status` for the duration of the injection.
+不过，这种注入方法可能会被 VAC 检测到，因为在注入过程中，**TracerPid** 下的 **gdb** 是可见的。`/proc/$(pidof cs2)/status`
 
 ## License
 
