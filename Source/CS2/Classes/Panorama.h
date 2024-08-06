@@ -79,12 +79,12 @@ struct CUILength {
         k_EUILengthPercent
     };
 
-    [[nodiscard]] static CUILength pixels(float value) noexcept
+    [[nodiscard]] static constexpr CUILength pixels(float value) noexcept
     {
         return CUILength{value, k_EUILengthLength};
     }
 
-    [[nodiscard]] static CUILength percent(float value) noexcept
+    [[nodiscard]] static constexpr CUILength percent(float value) noexcept
     {
         return CUILength{value, k_EUILengthPercent};
     }
@@ -275,6 +275,7 @@ struct CUIPanel {
 };
 
 enum EPanelFlag {
+    k_EPanelFlag_IsVisible = 0x01,
     k_EPanelFlag_HasOwnLayoutFile = 0x40
 };
 
