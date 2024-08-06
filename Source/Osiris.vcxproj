@@ -73,7 +73,6 @@
     <ClInclude Include="FeatureHelpers\PanelShadowParams.h" />
     <ClInclude Include="FeatureHelpers\NormalizedDeviceCoordinates.h" />
     <ClInclude Include="FeatureHelpers\PanelStylePropertyFactory.h" />
-    <ClInclude Include="FeatureHelpers\PanoramaLabelFactory.h" />
     <ClInclude Include="FeatureHelpers\PanoramaTransformations.h" />
     <ClInclude Include="FeatureHelpers\RenderingHookEntityLoop.h" />
     <ClInclude Include="FeatureHelpers\Sound\PlayedSound.h" />
@@ -134,6 +133,10 @@
     <ClInclude Include="Features\Sound\SoundFeaturesStates.h" />
     <ClInclude Include="Features\Sound\WeaponReloadVisualizer.h" />
     <ClInclude Include="Features\Sound\WeaponScopeVisualizer.h" />
+    <ClInclude Include="Features\Visuals\PlayerInformationThroughWalls\ActiveWeaponAmmo\ActiveWeaponAmmoPanelParams.h" />
+    <ClInclude Include="Features\Visuals\PlayerInformationThroughWalls\ActiveWeaponIcon\ActiveWeaponIconPanelParams.h" />
+    <ClInclude Include="Features\Visuals\PlayerInformationThroughWalls\PlayerHealth\PlayerHealthPanelParams.h" />
+    <ClInclude Include="Features\Visuals\PlayerInformationThroughWalls\PlayerInfoContainerPanelParams.h" />
     <ClInclude Include="Features\Visuals\PlayerInformationThroughWalls\PlayerInformationPanel.h" />
     <ClInclude Include="Features\Visuals\PlayerInformationThroughWalls\PlayerInformationThroughWalls.h" />
     <ClInclude Include="Features\Visuals\PlayerInformationThroughWalls\PlayerInformationThroughWallsPanelFactory.h" />
@@ -142,7 +145,9 @@
     <ClInclude Include="Features\Visuals\PlayerInformationThroughWalls\PlayerPositionArrow\PlayerColorIndexAccessor.h" />
     <ClInclude Include="Features\Visuals\PlayerInformationThroughWalls\PlayerPositionArrow\PlayerPositionArrowColorCalculator.h" />
     <ClInclude Include="Features\Visuals\PlayerInformationThroughWalls\PlayerPositionArrow\PlayerPositionArrowColorType.h" />
+    <ClInclude Include="Features\Visuals\PlayerInformationThroughWalls\PlayerPositionArrow\PlayerPositionArrowPanelParams.h" />
     <ClInclude Include="Features\Visuals\PlayerInformationThroughWalls\PlayerPositionArrow\TeamColorCalculator.h" />
+    <ClInclude Include="Features\Visuals\PlayerInformationThroughWalls\PlayerStateIcons\PlayerStateIconsPanelParams.h" />
     <ClInclude Include="Features\Visuals\PlayerInformationThroughWalls\PlayerStateIcons\PlayerStateIconsToShow.h" />
     <ClInclude Include="Features\Visuals\VisualFeatures.h" />
     <ClInclude Include="Features\Visuals\VisualFeaturesStates.h" />
@@ -174,12 +179,14 @@
     <ClInclude Include="GameClasses\OffsetTypes\WeaponOffset.h" />
     <ClInclude Include="GameClasses\OffsetTypes\WeaponServicesOffset.h" />
     <ClInclude Include="GameClasses\OffsetTypes\WeaponVDataOffset.h" />
-    <ClInclude Include="GameClasses\Panel.h" />
+    <ClInclude Include="GameClasses\PanelAlignmentParams.h" />
+    <ClInclude Include="GameClasses\PanelFactory.h" />
+    <ClInclude Include="GameClasses\PanelFontParams.h" />
     <ClInclude Include="GameClasses\PanelHandle.h" />
+    <ClInclude Include="GameClasses\PanelMarginParams.h" />
     <ClInclude Include="GameClasses\Panels.h" />
     <ClInclude Include="GameClasses\PanoramaImagePanel.h" />
     <ClInclude Include="GameClasses\PanoramaImagePanelContext.h" />
-    <ClInclude Include="GameClasses\PanoramaImagePanelFactory.h" />
     <ClInclude Include="GameClasses\PanoramaLabel.h" />
     <ClInclude Include="GameClasses\PanoramaUiEngine.h" />
     <ClInclude Include="GameClasses\PanoramaUiPanel.h" />
